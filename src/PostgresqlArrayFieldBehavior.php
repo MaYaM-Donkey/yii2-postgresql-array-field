@@ -193,7 +193,7 @@ class PostgresqlArrayFieldBehavior extends Behavior
 	 */
 	protected function _postgresqlArrayEncode($value)
 	{
-		if (empty($value) || !is_array($value)) {
+		if (empty($value) || !(is_array($value) || is_object($value))) {
 			return null;
 		}
 		return json_encode($value);
